@@ -2,8 +2,7 @@ import requests
 from datetime import datetime
 from datetime import timedelta
 from bs4 import BeautifulSoup as bs
-import tkinter as tk
-import pandas as pd
+
 
 #Login information
 username = input("Please enter your NRIC.")
@@ -94,7 +93,7 @@ form = soup.find("form", {"id": "formCourseSelect"})
 
 booking_payload = {
     "__RequestVerificationToken" : checkingToken,
-    "SlotId" : "1222486",
+    "SlotId" : "0", #currently slotID is hardcoded
     "SelectedSessionNumber" : "1",
     "SellBundleId" : "00000000-0000-0000-0000-000000000000",
     "IsOrientation" : "False",
@@ -133,15 +132,3 @@ r = s.post("https://www.ssdcl.com.sg/User/Payment/MakePayment", data = checkout_
 
 
 
-#Needs to display date and time of lessons
-#User input desired date & time
-#Post request to second booking page for desired lesson timing and date
-
-
-#End program if no slots are available
-#if availableSlots == []: 
-    #exit
-   # print("No slots available within specified timeframe, please try a different date.")
-
-#else:
-    #print(availableSlots)
